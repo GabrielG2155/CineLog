@@ -22,7 +22,7 @@ Os dados são armazenados localmente com operações completas de CRUD (Create, 
 
 # Instruções de execução
 1. Clone o repositório:
-   git clone https://github.com/seu-usuario/cinelog.git
+   git clone https://github.com/GabrielG2155/cinelog.git
 2. Abra o projeto no Android Studio.
 3. Aguarde o término da sincronização do Gradle.
 4. Execute o projeto em um emulador (AVD) ou dispositivo físico via USB (Shift + F10).
