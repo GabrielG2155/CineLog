@@ -21,7 +21,7 @@
 
         <!-- Outras telas da aplicação -->
         <activity android:name=".main.MainActivity" />
-
+        <activity android:name=".form.FormActivity" />
 
     </application>
 
