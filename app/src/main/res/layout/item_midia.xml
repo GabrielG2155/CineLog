@@ -7,13 +7,30 @@
     android:layout_marginBottom="8dp"
     android:background="#F0F0F0">
 
-    <TextView
-        android:id="@+id/tvTituloItem"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Título do Filme"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tvTituloItem"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Título do Filme"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnExcluirItem"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="Excluir"
+            android:textSize="12sp"
+            android:backgroundTint="#D32F2F"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/tvTipoNotaItem"

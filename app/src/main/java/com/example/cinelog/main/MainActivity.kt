@@ -1,8 +1,10 @@
 package com.example.cinelog.main
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -13,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.cinelog.R
 import com.example.cinelog.database.AppDatabase
 import com.example.cinelog.form.FormActivity
+import com.example.cinelog.model.MidiaItem
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
@@ -46,7 +49,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // Recarrega a lista do banco sempre que a tela aparece (inclusive após salvar no formulário)
+    // Recarrega a lista do banco sempre que a tela aparece (inclusive após salvar ou editar no formulário)
     override fun onResume() {
         super.onResume()
         carregarDadosDoBanco()
@@ -55,7 +58,41 @@ class MainActivity : AppCompatActivity() {
     private fun carregarDadosDoBanco() {
         lifecycleScope.launch {
             val listaSalva = db.midiaDao().listarTodos()
-            recyclerView.adapter = MidiaAdapter(listaSalva)
+            recyclerView.adapter = MidiaAdapter(
+                lista = listaSalva,
+                onEditarClick = { itemSelecionado ->
+                    abrirFormularioParaEdicao(itemSelecionado)
+                },
+                onExcluirClick = { itemSelecionado ->
+                    confirmarExclusao(itemSelecionado)
+                }
+            )
         }
+    }
+
+    private fun abrirFormularioParaEdicao(item: MidiaItem) {
+        val intent = Intent(this, FormActivity::class.java).apply {
+            putExtra("ID_MIDIA", item.id)
+            putExtra("TITULO", item.title)
+            putExtra("TIPO", item.type)
+            putExtra("NOTA", item.rating)
+            putExtra("COMENTARIO", item.review)
+        }
+        startActivity(intent)
+    }
+
+    private fun confirmarExclusao(item: MidiaItem) {
+        AlertDialog.Builder(this)
+            .setTitle("Excluir item")
+            .setMessage("Deseja realmente excluir \"${item.title}\"?")
+            .setPositiveButton("Sim, excluir") { _, _ ->
+                lifecycleScope.launch {
+                    db.midiaDao().deletar(item)
+                    Toast.makeText(this@MainActivity, "Excluído com sucesso!", Toast.LENGTH_SHORT).show()
+                    carregarDadosDoBanco()
+                }
+            }
+            .setNegativeButton("Cancelar", null)
+            .show()
     }
 }
