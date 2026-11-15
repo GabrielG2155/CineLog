@@ -29,4 +29,11 @@
         android:text="+ Adicionar Filme ou Série"
         android:layout_marginTop="8dp" />
 
+    <Button
+        android:id="@+id/btnSobre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sobre o App"
+        android:layout_marginTop="8dp" />
+
 </LinearLayout>

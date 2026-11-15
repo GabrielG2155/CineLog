@@ -16,6 +16,7 @@ import com.example.cinelog.R
 import com.example.cinelog.database.AppDatabase
 import com.example.cinelog.form.FormActivity
 import com.example.cinelog.model.MidiaItem
+import com.example.cinelog.sobre.SobreActivity
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
@@ -45,6 +46,13 @@ class MainActivity : AppCompatActivity() {
         val btnNovoItem = findViewById<Button>(R.id.btnNovoItem)
         btnNovoItem.setOnClickListener {
             val intent = Intent(this, FormActivity::class.java)
+            startActivity(intent)
+        }
+
+        // Botão para ir para a tela Sobre
+        val btnSobre = findViewById<Button>(R.id.btnSobre)
+        btnSobre.setOnClickListener {
+            val intent = Intent(this, SobreActivity::class.java)
             startActivity(intent)
         }
     }
