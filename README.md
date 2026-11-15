@@ -28,4 +28,17 @@ Os dados são armazenados localmente com operações completas de CRUD (Create, 
 4. Execute o projeto em um emulador (AVD) ou dispositivo físico via USB (Shift + F10).
 
 # Prints das telas
-*(Serão anexados conforme o desenvolvimento das interfaces)*
+
+<img width="331" height="530" alt="image" src="https://github.com/user-attachments/assets/5b85ecbb-e35e-4364-bc88-d8a4449f31b2" />
+
+
+<img width="265" height="540" alt="image" src="https://github.com/user-attachments/assets/d44fc5e6-435f-469e-9c9c-1a8fdf330759" />
+
+
+<img width="270" height="530" alt="image" src="https://github.com/user-attachments/assets/e5a18b0f-c1dd-4efa-80db-d8faf4d6419d" />
+
+
+<img width="320" height="453" alt="image" src="https://github.com/user-attachments/assets/9c5199ec-31be-469a-86ad-62d217f296a1" />
+
+
+<img width="284" height="572" alt="image" src="https://github.com/user-attachments/assets/ea1b9aaa-c392-4d3b-91ba-cebf92c1c28f" />
